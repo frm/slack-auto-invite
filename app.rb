@@ -4,7 +4,7 @@ require 'slim'
 require 'yaml'
 
 enable :sessions
-set :session_secret, ENV['SESSION_SECRET']
+set :session_secret, 'ABCDEF' #ENV['SESSION_SECRET']
 
 EMAIL_REGEX = /\A[\w\-.]+@[a-z\-\d]+(\.[a-z]+)*\.[a-z]+\z/i
 
@@ -29,6 +29,8 @@ post '/register' do
 end
 
 def send_invite
+  require 'httparty'
+
   query = invite_params.merge( load_configs )
   HTTParty.post(build_uri, header: settings.header, query: query)
 end
