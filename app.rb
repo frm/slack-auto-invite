@@ -4,9 +4,9 @@ require 'slim'
 require 'yaml'
 
 enable :sessions
-set :session_secret, 'ABCDEF' #ENV['SESSION_SECRET']
+set :session_secret, ENV['SESSION_SECRET']
 
-EMAIL_REGEX = /\A[\w\-.]+@[a-z\-\d]+(\.[a-z]+)*\.[a-z]+\z/i
+EMAIL_REGEX = /\A[\w\-.+]+@[a-z\-\d]+(\.[a-z]+)*\.[a-z]+\z/i
 
 configure do
   set config: YAML.load_file('config.yml')
