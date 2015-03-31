@@ -1,0 +1,16 @@
+h1 Register
+
+- if flash[:notice]
+  .success
+    = flash[:notice]
+
+- if flash[:error]
+  .success
+    = flash[:error]
+
+.container
+  form action="/register" method="POST"
+      input type="email" name="email"
+      input type="text" name="first_name"
+      input type="text" name="last_name"
+      input type="submit" value="Register"

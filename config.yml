@@ -1,0 +1,6 @@
+---
+
+hostname: "your-slack"
+params:
+  token: "your-token"
+  channels: "auto-join-channels"
